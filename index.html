@@ -5,25 +5,23 @@
   <title>My Bookmarks</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/index.css">
 </head>
 
 <body>
   <div class="container">
     <h1>My Bookmarks</h1>
-    <p>
-      <button type="button" id="add-bookmark-button">ADD BOOKMARK</button>
-      <select name="filter-by-stars">
-        
-        <!-- <option id="default">Minimum Rating</option>
-        <option id="five-star"><a href="#" class="test-star"><span class="glyphicon glyphicon-star"></span></a> Five</option>
-        <option value="4" class="four-star">Four <span class="glyphicon glyphicon-star"></span></option>
-        <option value="3" class="three-star">Three <span class="glyphicon glyphicon-star"></span></option>
-        <option value="2" class="two-star">Two <span class="glyphicon glyphicon-star"></span></option>
-        <option value="1" class="one-star">One <span class="glyphicon glyphicon-star"></span></option> -->
+    <form>
+      <button type="submit" id="add-bookmark-button"> ADD BOOKMARK </button>
+      <select>
+        <option value="default" selected> Minimum Rating </option>
+        <option value="five"> Five Stars </option>
+        <option value="four"> Four Stars </option>
+        <option value="three"> Three Stars </option>
+        <option value="two"> Two Stars </option>
+        <option value="one"> One Star </option>
       </select>
-    </p>
+    </form>
     <form id="js-bookmark-list-form" class="hidden">
       <label for="bookmark-list-entry">Add an item</label>
       <input type="text" name="bookmark-list-entry" class="js-bookmark-list-entry" placeholder="e.g., broccoli">

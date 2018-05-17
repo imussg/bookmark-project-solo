@@ -4,10 +4,18 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  margin-top: 40px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
 }
 
 button, input[type="text"], select {
   padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 button:hover {
@@ -25,6 +33,8 @@ button:hover {
 .container {
   max-width: 600px;
   margin: 0 auto;
+  border: solid black 1px;
+  border-radius: 5px;
 }
 
 .bookmark-list {
@@ -44,8 +54,4 @@ button:hover {
   font-style: italic;
   font-size: 20px;
   margin-bottom: 15px;
-}
-
-select.filter-by-stars {
-
 }
