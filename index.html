@@ -2,16 +2,29 @@
 <html lang="en">
 
 <head>
-  <title>Shopping List</title>
+  <title>My Bookmarks</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/index.css">
 </head>
 
 <body>
   <div class="container">
-    <h1>Shopping List</h1>
-    <form id="js-bookmark-list-form">
+    <h1>My Bookmarks</h1>
+    <p>
+      <button type="button" id="add-bookmark-button">ADD BOOKMARK</button>
+      <select name="filter-by-stars">
+        
+        <!-- <option id="default">Minimum Rating</option>
+        <option id="five-star"><a href="#" class="test-star"><span class="glyphicon glyphicon-star"></span></a> Five</option>
+        <option value="4" class="four-star">Four <span class="glyphicon glyphicon-star"></span></option>
+        <option value="3" class="three-star">Three <span class="glyphicon glyphicon-star"></span></option>
+        <option value="2" class="two-star">Two <span class="glyphicon glyphicon-star"></span></option>
+        <option value="1" class="one-star">One <span class="glyphicon glyphicon-star"></span></option> -->
+      </select>
+    </p>
+    <form id="js-bookmark-list-form" class="hidden">
       <label for="bookmark-list-entry">Add an item</label>
       <input type="text" name="bookmark-list-entry" class="js-bookmark-list-entry" placeholder="e.g., broccoli">
       <button type="submit">Add item</button>
@@ -30,7 +43,6 @@
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="scripts/Item.js"></script>
   <script type="text/javascript" src="scripts/store.js"></script>
   <script type="text/javascript" src="scripts/api.js"></script>
   <script type="text/javascript" src="scripts/bookmarks.js"></script>
