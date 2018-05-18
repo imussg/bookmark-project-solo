@@ -155,26 +155,34 @@ const bookmarks = (function() {
 	function handleNewBookmarkSubmit() {
 		// change the store.adding value
 		$('form#js-form-actions').submit(function (event) {
-			event.preventDefault();
-			const newBookmarkTitle = $('#new-title').val();
-			const newBookmarkUrl = $('#new-url').val();
-			const newBookmarkRating = $('input[name="ratings"]:checked').val();
-			const newBookmarkDescription = $('textarea#new-description').val();
-			clearValues();
-			const newBookmark = {
-				id: cuid(), 
-				title: newBookmarkTitle, 
-				url: newBookmarkUrl, 
-				rating: newBookmarkRating, 
-				description: newBookmarkDescription
-			};
-			console.log(newBookmark);
-			api.createBookmark(newBookmark, (createdBookmark) => {
-				createdBookmark.expanded = false;
-				store.addBookmark(createdBookmark);
-				console.log(createdBookmark);
-				render();
-			});
+			try {	
+				event.preventDefault();
+				const newBookmarkTitle = $('#new-title').val();
+				const newBookmarkUrl = $('#new-url').val();
+				const newBookmarkRating = $('input[name="ratings"]:checked').val();
+				const newBookmarkDescription = $('textarea#new-description').val();
+				if(newBookmarkTitle !== "" && newBookmarkUrl !== "" && newBookmarkRating !== undefined) {
+					const newBookmark = {
+						id: cuid(), 
+						title: newBookmarkTitle, 
+						url: newBookmarkUrl, 
+						rating: newBookmarkRating, 
+						description: newBookmarkDescription
+					};
+					console.log(newBookmark);
+					api.createBookmark(newBookmark, (createdBookmark) => {
+						createdBookmark.expanded = false;
+						store.addBookmark(createdBookmark);
+						console.log(createdBookmark);
+						render();
+					});
+				} else {
+					throw new Error("Data input incorrectly.  Please enter all relevant fields.");
+				}
+			}
+			catch(err) {
+				alert(err.message);
+			}
 		});
 		// re-render the page
 	}
