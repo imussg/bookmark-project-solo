@@ -30,11 +30,22 @@ const store = (function() {
 	};
 
 	const findAndUpdate = function(id, newData) {
-
+		api.updateBookmark(id, newData, () => {
+			const tempItem = this.findById(id);
+      		const key = Object.keys(newData)[0];
+      		if(key === "title" || key === "desc") {
+      			tempItem[key] = newData[key];
+      			bookmarks.render();
+      		}
+		});
 	};
 
 	const findAndDelete = function(id) {
-
+		this.bookmarks = this.bookmarks.filter(item => item.id !== id);
+		api.deleteBookmark(id, () => {
+			console.log(this.bookmarks);
+			bookmarks.render();
+		});
 	};
 
 	const setFilter = function(value) {

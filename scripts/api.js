@@ -16,18 +16,18 @@ const api = (function() {
 
 	const createBookmark = function(bookmark, callback) {
 		const newItem = JSON.stringify({
-			bookmark
-	      // "title": bookmark.title,
-	      // "url": bookmark.url,
-	      // "description": bookmark.description,
-	      // "rating": bookmark.rating
+			"id": bookmark.id,
+			"title": bookmark.title,
+			"url": bookmark.url,
+			"desc": bookmark.description,
+			"rating": bookmark.rating
 	    });
 
 	    $.ajax({
 	    	url: BASE_URL + '/bookmarks',
 	    	method: 'POST',
 	    	contentType: 'application/json',
-	    	data: bookmark,
+	    	data: newItem,
 	    	success: callback
 	    });
 	};
